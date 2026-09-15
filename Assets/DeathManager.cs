@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeathManagerOne : MonoBehaviour
+public class DeathManager : MonoBehaviour
 {
     public GameObject deathScreenCanvas; // Reference to the Death Screen Canvas
     
