@@ -12,7 +12,7 @@ public class DeathManager : MonoBehaviour
         deathScreenCanvas.SetActive(true);
 
         // Pause the game
-        Time.timeScale = 1f;
+        Time.timeScale = 1.0f;
     }
     
     // Restart the game (called by a button)
@@ -27,7 +27,7 @@ public class DeathManager : MonoBehaviour
     public void QuitGame()
     {
         // Reset time scale and quit the application
-        Time.timeScale = 1f;
+        Time.timeScale = 1.0f;
         Application.Quit();
     }
 }

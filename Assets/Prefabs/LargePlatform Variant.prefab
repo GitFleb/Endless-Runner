@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargePlatform Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4679316356516073586, guid: b5506f7a5e36829418e14ac8e1ad4c17, type: 3}
+      propertyPath: m_TagString
+      value: CleanUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
