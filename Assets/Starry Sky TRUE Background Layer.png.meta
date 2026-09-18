@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62b8f4e9bf966bf43a47760a3be10799
+guid: 2913b875529571d4f824940b0c214134
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1528337099515177563
-    second: Starry Background Layer - Orlando Roddy_0
+      213: 7730748780760990150
+    second: Starry Sky TRUE Background Layer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Starry Background Layer - Orlando Roddy_0
+      name: Starry Sky TRUE Background Layer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a5d85661814acae0800000000000000
-      internalID: -1528337099515177563
+      spriteID: 6c10b0d8e03294b60800000000000000
+      internalID: 7730748780760990150
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Starry Background Layer - Orlando Roddy_0: -1528337099515177563
+      Starry Sky TRUE Background Layer_0: 7730748780760990150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
