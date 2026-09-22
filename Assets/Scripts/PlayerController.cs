@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
 {
 
     Rigidbody2D playerObject;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerObject = GetComponent<Rigidbody2D>();   
+        playerObject = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

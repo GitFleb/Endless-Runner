@@ -11,11 +11,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;             // Reference to the Rigidbody2D Component
     private bool isGrounded;            // Is the player on the ground?
-
+    Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();       // Get the Rigidbody2D component attached to the player
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -31,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
-    }
+
+        anim.SetBool("isOnGround", isGrounded);
+    }   
 
 
     private void Jump()
