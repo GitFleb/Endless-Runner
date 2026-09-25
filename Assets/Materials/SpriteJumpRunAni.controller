@@ -46,7 +46,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Temp ER SpriteRun
+  m_Name: Form 1 Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -60,7 +60,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 61ebadfe10a0ce54b995292a06641357, type: 2}
+  m_Motion: {fileID: 7400000, guid: 96d6aa67eeb32f741b275b9420e68423, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -73,8 +73,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Temp ER SpriteJump
-  m_Speed: 1
+  m_Name: Form 1 Jump
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6088785579129690252}
@@ -87,7 +87,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e3bbc45b8feadcf42a065f1e51b4eb8d, type: 2}
+  m_Motion: {fileID: 7400000, guid: fb5cbc6c46942c24b94eab60161dacd0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
