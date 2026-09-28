@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheckPoint;  // A point to check if the player is grounded
     public float checkRadius = 0.2f;    // Radius of the overlap circle for ground detection
     public LayerMask groundLayer;       // Layer of the ground objects
+    public GameObject player;          // Reference to the Player GameObject
 
     private Rigidbody2D rb;             // Reference to the Rigidbody2D Component
     private bool isGrounded;            // Is the player on the ground?
     Animator anim;
+
+    public float dashForce = 15f; // Dash Force
 
     void Start()
     {
@@ -22,7 +26,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Constant forward movement
-        rb.linearVelocity = new Vector2(movespeed, rb.linearVelocity.y);
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame)
+        {
+            //player.IgnoreGravity = true;
+            rb.linearVelocity = new Vector2(dashForce, rb.linearVelocity.y);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(movespeed, rb.linearVelocity.y);
+        }
 
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
@@ -34,9 +46,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetBool("isOnGround", isGrounded);
-    }   
+ 
+        if (Keyboard.current != null && Keyboard.current.leftShiftKey.wasPressedThisFrame)
+        {
+            Dash();
+        }
 
-
+    }
+    
+    private void Dash()
+    {
+        //rb.linearVelocity = new Vector2(dashForce, rb.linearVelocity.y);
+        Debug.Log("Dashed");
+    }
+    
     private void Jump()
     {
         // Set upward velocity for jumping
