@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;          // Reference to the Player GameObject
 
     private Rigidbody2D rb;             // Reference to the Rigidbody2D Component
-    private bool isGrounded;            // Is the player on the ground?
+    private bool isGrounded; 
+    private int jumpCount = 0; // Count of jumps made by the player
     Animator anim;
 
     public float dashForce = 15f; // Dash Force
@@ -28,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         // Constant forward movement
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame)
         {
-            //player.IgnoreGravity = true;
             rb.linearVelocity = new Vector2(dashForce, rb.linearVelocity.y);
         }
         else
@@ -40,26 +40,24 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
         // jumping Logic
-        if (isGrounded && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (isGrounded && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame || (jumpCount <= 2))        
         {
             Jump();
+            jumpCount = jumpCount + 1;
         }
-
-        anim.SetBool("isOnGround", isGrounded);
- 
-        if (Keyboard.current != null && Keyboard.current.leftShiftKey.wasPressedThisFrame)
+       
+        // Dashing Logic
+        if (rb.linearVelocity.x == 0)
         {
-            Dash();
-        }
+            dashing = false;
+        }   
 
+        if (!dashing)
+        {
+            PlayerDash();
+        }
     }
-    
-    private void Dash()
-    {
-        //rb.linearVelocity = new Vector2(dashForce, rb.linearVelocity.y);
-        Debug.Log("Dashed");
-    }
-    
+
     private void Jump()
     {
         // Set upward velocity for jumping
@@ -73,6 +71,25 @@ public class PlayerMovement : MonoBehaviour
         if (groundCheckPoint == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheckPoint.position, checkRadius);
+    }
+
+    bool dashing = true;
+    public float startDashTime;
+    public float dashTime;
+    public float dashSpeed;
+
+    void PlayerDash()
+    {
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 direction = input.normalized;
+        Vector2 velocity = direction * dashSpeed;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashing)
+        {
+            dashing = true;
+            rb.linearVelocity = velocity;
+            startDashTime = Time.time;
+        }
     }
 }   
     
