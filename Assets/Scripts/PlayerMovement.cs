@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;           // Reference to the Player GameObject
 
     private Rigidbody2D rb;             // Reference to the Rigidbody2D Component
-    private bool isGrounded;
+    [SerializeField] public bool isGrounded;
     private int jumpCount = 0;          // Count of jumps made by the player
     Animator anim;
 
@@ -39,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpCount = 0; // Reset jump count after double jump
             } */
-
-            anim.SetBool("isOnGround", isGrounded);
         }
+
+        anim.SetBool("isOnGround", isGrounded);
     }
 
     private void Jump()
