@@ -1,19 +1,30 @@
-/* using UnityEngine;
+using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-// private interface IGameScore = 0;
+using TMPro;
 
-public class CollectibleSystem : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class CollectibleSystem : MonoBehaviour
     {
-        // If the GameObject that has collided with our trigger is tagged with CleanUp...
-        if (collision.gameObject.tag == "Collectible")
+        public GameObject player;
+        public int gameScore = 0;
+        public TMP_Text soulsText;
+
+        public void OnTriggerEnter2D(Collider2D collision)
         {
-            // Then we use this method to destroy it
-            Destroy(collision.gameObject);
-            score = score + 1;
+            // If the GameObject that has collided with our trigger is tagged with Collectible...
+            if (collision.gameObject.tag == "Collectible")
+            {
+                // Then we use this method to destroy it
+                Destroy(collision.gameObject);
+                gameScore = gameScore + 1;  // And this to increase game score by 1
+            }
+        }
+
+        void Update()
+        {
+            soulsText.SetText("Souls: " + gameScore);
+            if (gameScore >= 13)
+            {
+                Debug.Log("Transformation");
+            }
         }
     }
-}
-*/
