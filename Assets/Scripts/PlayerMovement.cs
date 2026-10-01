@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, checkRadius, groundLayer);
 
         // jumping Logic
-        if (isGrounded && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame )
+        if (isGrounded && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame  )
         {
             Jump();
             jumpCount = jumpCount + 1;
